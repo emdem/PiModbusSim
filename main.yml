@@ -1,0 +1,7 @@
+---
+- hosts: simulators
+  gather_facts: yes
+  roles:
+    - common
+    - docker
+    - modbussim

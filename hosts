@@ -1,0 +1,4 @@
+[simulators]
+#add hosts here
+[builders]
+#add docker image builder for jenkins

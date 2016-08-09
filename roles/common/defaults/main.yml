@@ -1,0 +1,14 @@
+---
+raspi_config_update_packages: yes
+raspi_config_expand_filesystem: yes
+raspi_config_memory_split_gpu: 8
+raspi_config_ensure_optimal_cpu_params: yes
+raspi_config_locale: en_US.UTF8
+raspi_config_timezone: UTC
+raspi_config_hostname: pi
+raspi_config_enable_camera: no
+raspi_config_fail_on_auth_test: yes
+raspi_config_replace_user:
+  name:
+  path_to_ssh_key:
+raspi_config_other_options: {}

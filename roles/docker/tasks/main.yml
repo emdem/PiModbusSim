@@ -1,0 +1,11 @@
+---
+- name: add overlay filesystem module
+  lineinfile: dest=/etc/modules state=present line="overlay" insertafter="EOF"
+
+- name: load overlay module
+  modprobe: name=overlay state=present
+
+- name: add overlay kernel module
+  become: true
+  command: echo "overlay" | tee -a /etc/modules
+

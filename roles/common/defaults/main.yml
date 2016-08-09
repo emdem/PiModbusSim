@@ -8,7 +8,8 @@ raspi_config_timezone: UTC
 raspi_config_hostname: pi
 raspi_config_enable_camera: no
 raspi_config_fail_on_auth_test: yes
+raspi_config_default_username: pi
 raspi_config_replace_user:
-  name:
-  path_to_ssh_key:
+  name: power
+  path_to_ssh_key: /home/emre/.ssh/id_rsa.pub
 raspi_config_other_options: {}

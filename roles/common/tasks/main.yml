@@ -1,0 +1,25 @@
+---
+- name: update all packages
+  apt: update_cache=yes upgrade=dist
+
+- name: create ansible directory to track filesystem expansion
+  become: yes
+  file: path=/opt/ansible state=directory
+
+- name: check if filesystem has been expanded
+  stat: path=/opt/ansible/filesystem_expanded
+  register: filesystem_expanded
+
+- name: expand filesystem to full disk
+  become: yes
+  when: filesystem_expanded.stat.exists == False
+  command: raspi-config --expand-rootfs
+  notify:
+    - reboot
+    - wait for reboot
+
+- name: set filesystem as expanded by touching file
+  become: yes
+  when: filesystem_expanded.stat.exists == False
+  file: path=/opt/ansible/filesystem_expanded state=touch mode="u=r,g=r,o=r"
+
